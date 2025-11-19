@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title> New York City Vulnerablity · Map</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <meta name="description" content="find some new meta data">
   <link rel="preconnect" href="https://unpkg.com">
 </head>
@@ -14,8 +14,11 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <div class="container-header>
-      <h1 class="logo"><a href="index.html" aria-label="Home">New York City's Climate Hazards </a></h1>
+    <div class="container-header">
+      <div class="nav-wrapper"></div>
+      <h1 class="logo">
+        <a href="index.html" aria-label="Home">New York City's Climate Hazards</a>
+      </h1>
       <nav aria-label="Primary">
         <ul class="nav">
           <li><a href="index.html">Home</a></li>
@@ -23,8 +26,10 @@
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
+      </div>
     </div>
   </header>
+
      <section>
       <h2>Interactive Map</h2>
       <p>Use the layer control to switch between HVI and Percentage of impervious surface. </p>
@@ -35,7 +40,7 @@
       <div id="control-card" class="control-card">
         <h2>Increase the % of Vegetation</h2>
             <div class="slider-panel">
-              <label for="vegSlider">Adjust Value:</label>
+
               <input id="vegSlider" type="range" min="0" max="100"
                value="40" step ="10" class="range range-neutral" />
               <span id="vegSliderValue">40</span> 
@@ -78,11 +83,7 @@
     </div>
      
       <style>
-      .container {
-        display: flex;
-        justify-content: space-between;
-        /* Or flex-start, etc. */
-      }
+
 
       
 
@@ -99,7 +100,7 @@
       </style>
     <section>
       
-      <p>Use the layer control to switch between HVI and Percentage of impervious surface. </p>
+     
       <div id="map" class="map" role="application" aria-label="Interactive map of Ottawa points of interest"></div>
       <details class="help">
         <summary>Troubleshooting</summary>
@@ -114,13 +115,13 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="map.js"></script>
+    <script src="js/map.js"></script>
 
 
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p>nah.</p>
+      <p>this is the footer.</p>
     </div>
   </footer>
 </body>
