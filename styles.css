@@ -111,7 +111,35 @@ q
   margin-bottom: 1rem;
 
 }
-#legend-card {
+#combined-legend {
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.legend-section {
+  margin-bottom: 12px;
+}
+
+.legend-title {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.legend-box {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  border: 1px solid #555;
+  border-radius: 2px;
+}
+
+/* #legend-card {
   width: 200px;
   border-radius: 5%;
   margin-top: 40px;
@@ -145,21 +173,23 @@ q
   margin-top: 0;
   color:rgb(109, 47, 16)
 
-}
+} */
+ /*
 .legend-item {
   display: flex;
-  /* Aligns symbol and text horizontally */
-  align-items: center;
-  /* Vertically centers them */
+  /* Aligns symbol and text horizontally 
+  align-items: center; */
+  /* Vertically centers them */ /*
   margin-bottom: 8px;
 }
 
+/*
 .legend-symbol {
   width: 25px;
   height: 16px;
   margin-right: 8px;
   border: 1px solid #333;
-  /* Optional border for symbols */
+  /* Optional border for symbols *//*
 }
 .square-one{
   background-color: #ffffb2;
@@ -176,6 +206,7 @@ q
 .square-five{
   background-color: #bd0026;
 }
+ */
 
 /* Slider styling */
 input[type="range"] {

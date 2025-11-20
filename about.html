@@ -1,45 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tourist's Guide to Ottawa · About</title>
+  <title>NYC Climate Vulnurabilites· About</title>
   <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="A demo Leaflet microsite and tourist guide to Ottawa.">
+  <meta name="description" content="A site showing NYC Climate Vulnurabilities.">
   <link rel="preconnect" href="https://unpkg.com">
 </head>
+
 <body>
 
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <div class="container">
-        <h1 class="logo"><a href="index.html" aria-label="Home">Tourist's Guide to Ottawa</a></h1>
-        <nav aria-label="Primary">
-          <ul class="nav">
-            <li><a  href="index.html">Home</a></li>
-            <li><a  href="map.html">Map</a></li>
-            <li><a class="active" href="about.html">About</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    
-<main id="main" class="container">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container-header">
+      <div class="nav-wrapper"></div>
+      <h1 class="logo">
+        <a href="index.html" aria-label="Home">New York City's Climate Hazards</a>
+      </h1>
+      <nav aria-label="Primary">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="map.html">Map</a></li>
+          <li><a class="active" href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+    </div>
+  </header>
 
-<section>
-  <h2>About this Demo</h2>
-  <p>This stand‑alone example shows a small Leaflet microsite built around a map. Replace the POIs, adjust styles, and publish via GitHub Pages.</p>
-  <ul>
-    <li>Accessible, responsive layout with keyboard‑friendly navigation.</li>
-    <li>Clear separation of concerns: HTML (structure), CSS (style), JS (behavior).</li>
-    <li>GeoJSON dataset for quick swaps.</li>
-  </ul>
-</section>
+  <main id="main" class="container">
 
-</main>
-<footer class="site-footer">
-  <div class="container">
-    <p>© 2025 Tourist's Guide to Ottawa — Built with Leaflet. Demo site for GEOG 464.</p>
-  </div>
-</footer>
-</body></html>
+    <section>
+      <h2>Documentation</h2>
+      <p>Data Sources:</p>
+      <ul>
+        <li>City of New York, Department of City Planning. (n.d.). American Community Survey (ACS) data set. Retrieved
+          November 19, 2025, from <a
+            href="https://www.nyc.gov/content/planning/pages/resources/datasets/american-community-survey nyc.gov">https://www.nyc.gov/content/planning/pages/resources/datasets/american-community-survey
+            nyc.gov"</a></li>
+        <li>City of New York, Department of City Planning. (n.d.). Decennial Census data set. Retrieved November 19,
+          2025, from
+          <a>https://www.nyc.gov/content/planning/pages/resources/datasets/decennial-census">https://www.nyc.gov/content/planning/pages/resources/datasets/decennial-census</a>
+        </li>
+
+        <li>
+          New York City Department of Health, Environment &amp; Health Data Portal. Climate data.
+          Daytime summer surface temperature.
+          <a href="https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/climate/?id=2141" target="_blank">
+            https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/climate/?id=2141
+          </a>
+        </li>
+
+        <li>
+          New York City Department of Health, Environment &amp; Health Data Portal. Climate data.
+          Vegetative cover. Accessed 11/19/2025.
+          <a href="https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/climate/?id=2141" target="_blank">
+            https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/climate/?id=2141
+          </a>
+        </li>
+
+        <li>
+          New York City Department of Health, Environment &amp; Health Data Portal. Climate data.
+          Household air conditioning. Accessed 11/19/2025.
+          <a href="https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/climate/?id=2143" target="_blank">
+            https://a816-dohbesp.nyc.gov/IndicatorPublic/data-explorer/climate/?id=2143
+          </a>
+        </li>
+
+
+        <li>GeoJSON dataset for quick swaps.</li>
+      </ul>
+    </section>
+
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>Footer</p>
+    </div>
+  </footer>
+</body>
+
+</html>
