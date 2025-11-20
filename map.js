@@ -22,16 +22,16 @@ const baseFile = "data/hvi.geojson";
 // Scenario files
 const scenarioFiles = {
     0: NaN,
-    10: "Data/10_HVI.geojson",
-    20: "Data/20_HVI.geojson",
-    30: "Data/30_HVI.geojson",
-    40: "Data/40_HVI.geojson",
-    50: "Data/50_HVI.geojson",
-    60: "Data/60_HVI.geojson",
-    70: "Data/70_HVI.geojson",
-    80: "Data/80_HVI.geojson",
-    90: "Data/90_HVI.geojson",
-    100:"Data/100_HVI.geojson"
+    10: "data/10_HVI.geojson",
+    20: "data/20_HVI.geojson",
+    30: "data/30_HVI.geojson",
+    40: "data/40_HVI.geojson",
+    50: "data/50_HVI.geojson",
+    60: "data/60_HVI.geojson",
+    70: "data/70_HVI.geojson",
+    80: "data/80_HVI.geojson",
+    90: "data/90_HVI.geojson",
+    100:"data/100_HVI.geojson"
 };
 
 // --- Load BASELINE layer and keep it forever ---
