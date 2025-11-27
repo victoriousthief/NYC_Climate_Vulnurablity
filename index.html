@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Climate Vulnurabilities in NYC· Home</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="A webstie showing NYC Climate Vulnurablities.">
+  <title> New York City Vulnerablity · Map</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <meta name="description" content="find some new meta data">
   <link rel="preconnect" href="https://unpkg.com">
 </head>
+
 <body>
 
-    <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- HEADER (unchanged) -->
   <header class="site-header">
     <div class="container-header">
       <div class="nav-wrapper"></div>
@@ -19,39 +23,110 @@
       </h1>
       <nav aria-label="Primary">
         <ul class="nav">
-          <li><a class ="active" href="index.html">Home</a></li>
-          <li><a class="active" href="map.html">Map</a></li>
+         <li><a class="active" href="index.html">Map</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
       </nav>
-      </div>
     </div>
   </header>
-    
-<main id="main" class="container">
 
-<section class="hero">
-  <h2>How can you change the future?</h2>
-  <p> Use this <a href="map.html">Map</a> to deploy diffrent climate change interventions in NYC and descover their impacts</p>
-  <div class="cta"><a class="button" href="map.html">Start Now→</a></div>
-</section>
-<section class="grid">
-  <article>
-    <h3>Coming soon</h3>
-    <ul>
-      <li>Multiple Layers</li>
-      <li>Permiability and Green Space calculator</li>
-      <li> New back end!</li>
-      <li> Show data </li>
-      
-    </ul>
-  </article>
-</section>
+  <!-- PAGE INTRO (kept) -->
+  <section>
+    <h2>Interactive Map</h2>
+    <p>Use the layer control to switch between HVI and Percentage of impervious surface.</p>
+  </section>
 
-</main>
-<footer class="site-footer">
-  <div class="container">
-    <p>this is the footer.</p>
-  </div>
-</footer>
-</body></html>
+  <!-- MAIN MAP AREA -->
+  <main id="main" class="map-page">
+
+    <div class="map-wrapper">
+      <!-- LEAFLET MAP -->
+      <div id="map" class="map" role="application"
+        aria-label="Interactive map of New York City climate hazards and vulnerability"></div>
+
+      <!-- OVERLAY: SLIDER + LEGEND (ALWAYS VISIBLE) -->
+      <aside id="control-card" class="control-card">
+        <h2>Increase the % of Vegetation</h2>
+
+        <div class="slider-panel">
+          <label for="vegSlider" class="slider-label">Vegetation scenario:</label>
+          <input id="vegSlider" type="range" min="0" max="100" value="40" step="10" />
+          <span id="vegSliderValue">40</span>%
+        </div>
+
+        <div id="legend-card" class="legend-card">
+          <h3>Legend</h3>
+          <div id="combined-legend"></div>
+        </div>
+      </aside>
+
+      <!-- TOGGLABLE ABOUT HVI TAB AT BOTTOM -->
+      <button id="aboutToggle" class="about-toggle" type="button">
+        About HVI
+      </button>
+
+      <section id="aboutPanel" class="about-panel" aria-label="About Heat Vulnerability Index">
+        <button id="aboutClose" class="about-close" type="button" aria-label="Close About HVI">×</button>
+        <h3>About the Heat Vulnerability Index (HVI)</h3>
+        <p>
+          The Heat Vulnerability Index (HVI) identifies neighborhoods at higher risk during
+          extreme heat events based on factors such as age, income, health, housing, and
+          environmental conditions. It helps planners and communities prioritize cooling
+          strategies, green infrastructure, and outreach where they are most needed.
+        </p>
+      </section>
+    </div>
+
+    <!-- TROUBLESHOOTING (kept from your original page) -->
+    <section>
+      <details class="help">
+        <summary>Troubleshooting</summary>
+        <ul>
+          <li>Open with a local server to avoid CORS: <code>python -m http.server</code></li>
+          <li>If data doesn’t load, check the path to <code>data/Heat_Vulnerability_Index_2023.geojson</code>.</li>
+          <li>Use your browser console (F12) to see errors.</li>
+        </ul>
+      </details>
+    </section>
+
+    <!-- LEAFLET + MAP LOGIC -->
+    <link rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
+    <script src="js/map.js"></script>
+
+    <!-- ABOUT HVI TOGGLE LOGIC -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const aboutToggle = document.getElementById('aboutToggle');
+        const aboutPanel = document.getElementById('aboutPanel');
+        const aboutClose = document.getElementById('aboutClose');
+
+        if (aboutToggle && aboutPanel) {
+          aboutToggle.addEventListener('click', () => {
+            aboutPanel.classList.toggle('open');
+          });
+        }
+        if (aboutClose && aboutPanel) {
+          aboutClose.addEventListener('click', () => {
+            aboutPanel.classList.remove('open');
+          });
+        }
+      });
+    </script>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>this is the footer.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

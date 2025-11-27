@@ -38,13 +38,25 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:Helvetica,'Times 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1rem}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;padding:0}
 .cards li{list-style:none;background:var(--card);padding:.9rem;border-radius:.75rem;border:1px solid rgba(255,255,255,.08)}
-.map{height:90vh;width:150vh;border-radius:1rem;border:1px solid rgba(255,255,255,.15);overflow:hidden;margin-top:.75rem}
+
+
+/*.map{height:90vh;width:150vh;border-radius:1rem;border:1px solid rgba(255,255,255,.15);overflow:hidden;margin-top:.75rem}*/
 .help{margin-top:1rem}
 .site-footer{border-top:1px solid rgba(255,255,255,.08);background:var(--card);margin-top:2rem}
 a{color:var(--link)}
 code, pre{background:#0f1b3d;color:#d1e7ff;border-radius:.5rem}
 pre{padding:1rem;overflow:auto}
 @media (max-width:600px){.map{height:60vh}}
+.map {
+  height: 85vh;
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,.15);
+  overflow: hidden;
+  margin: 0.75rem auto 0;
+}
+
 
 /* Reset and layout */
 body, html {
@@ -73,22 +85,25 @@ body, html {
 
 /* Control card styling */
 #control-card {
-  width: 300px;
-  height: 90vh;
-  margin: 0 auto;
-  text-align: center;
-  border-radius: 2%;
-  margin-top: 10px;
-  background-color: #f2f2f2;
-  border-left: 1px solid #ddd;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 320px;
+  max-width: 90vw;
+  text-align: left;
+  border-radius: 1rem;
+  background: rgba(241, 241, 241, 0.88); /* semi-transparent */
+  backdrop-filter: blur(8px);             /* glassy effect */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+  padding: 1.25rem 1.5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;  
+  gap: 0.75rem;
+  z-index: 500;
 }
+
 q
 /* Card header */
 #control-card h2 {
@@ -138,6 +153,207 @@ q
   border: 1px solid #555;
   border-radius: 2px;
 }
+.map-layout {
+  position: relative;
+  height: calc(100vh - 80px);
+  width: 100%;
+}
+
+.map-full {
+  height: 100%;
+  width: 100%;
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+/* Slide-in panel */
+.legend-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 280px;
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  transition: transform 0.3s ease;
+}
+
+.legend-panel.hidden {
+  transform: translateX(120%);
+}
+
+/* Floating toggle */
+.floating-btn {
+  position: absolute;
+  top: 20px;
+  right: 320px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: .6rem 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+/* ABOUT PANEL */
+.about-toggle {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: .6rem 1.2rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.about-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 -10px 20px rgba(0,0,0,.2);
+  transition: transform 0.3s ease;
+}
+
+.about-panel.hidden {
+  transform: translateY(100%);
+}
+
+.persistent {
+  z-index: 999;
+}
+
+/* Optional: keep them fixed even when scrolling */
+.floating-btn,
+.about-toggle {
+  position: fixed;
+}
+
+/* Legend toggle position */
+.floating-btn {
+  top: 90px;   /* below header */
+  right: 20px;
+}
+
+/* About toggle position */
+.about-toggle {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* --- MAP PAGE LAYOUT --- */
+.map-page {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+.map-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Slider + value layout */
+.slider-panel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.slider-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#vegSliderValue {
+  font-weight: 600;
+  color: #222;
+}
+
+/* Legend card inside control card */
+.legend-card h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.legend-card {
+  width: 100%;
+}
+
+/* Make range input look reasonable in the narrow card */
+input[type="range"] {
+  flex: 1;
+  min-width: 140px;
+}
+
+/* --- ABOUT HVI BOTTOM TAB --- */
+.about-toggle {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--secondary);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  z-index: 600;
+}
+
+.about-toggle:hover {
+  filter: brightness(1.05);
+}
+
+/* Slide-up panel */
+.about-panel {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 100%);
+  width: min(700px, 100%);
+  background: rgba(241, 241, 241, 0.96);
+  backdrop-filter: blur(8px);
+  border-radius: 1.25rem 1.25rem 0 0;
+  box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem 1.75rem 2rem;
+  z-index: 550;
+  transition: transform 0.25s ease;
+}
+
+.about-panel.open {
+  transform: translate(-50%, 0);
+}
+
+.about-panel h3 {
+  margin-top: 0.25rem;
+}
+
+.about-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.85rem;
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+
+
 
 /* #legend-card {
   width: 200px;
