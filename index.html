@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title> New York City Vulnerablity · Map</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/cleaned_styles.css" />
   <meta name="description" content="find some new meta data">
   <link rel="preconnect" href="https://unpkg.com">
 </head>
@@ -14,7 +14,7 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- HEADER (unchanged) -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container-header">
       <div class="nav-wrapper"></div>
@@ -30,12 +30,12 @@
     </div>
   </header>
 
-  <!-- PAGE INTRO (kept) -->
-  <section>
+  <!-- PAGE INTRO  
+   <section>
     <h2>Interactive Map</h2>
     <p>Use the layer control to switch between HVI and Percentage of impervious surface.</p>
   </section>
-
+-->
   <!-- MAIN MAP AREA -->
   <main id="main" class="map-page">
 
@@ -50,7 +50,7 @@
 
         <div class="slider-panel">
           <label for="vegSlider" class="slider-label">Vegetation scenario:</label>
-          <input id="vegSlider" type="range" min="0" max="100" value="40" step="10" />
+          <input id="vegSlider" type="range" min="0" max="100" value="0" step="10" />
           <span id="vegSliderValue">40</span>%
         </div>
 
@@ -61,34 +61,29 @@
       </aside>
 
       <!-- TOGGLABLE ABOUT HVI TAB AT BOTTOM -->
-      <button id="aboutToggle" class="about-toggle" type="button">
-        About HVI
-      </button>
 
-      <section id="aboutPanel" class="about-panel" aria-label="About Heat Vulnerability Index">
-        <button id="aboutClose" class="about-close" type="button" aria-label="Close About HVI">×</button>
-        <h3>About the Heat Vulnerability Index (HVI)</h3>
+     <div id="about-panel" class="about-panel">
+        <button id="aboutToggle" class="about-toggle" type="button" onclick="aboutToggle()"><span>About HVI</span></button> 
+        <button class="about-close" onclick="aboutToggle()">×</button>
+              <h3>About the Heat Vulnerability Index (HVI)</h3>
         <p>
           The Heat Vulnerability Index (HVI) identifies neighborhoods at higher risk during
           extreme heat events based on factors such as age, income, health, housing, and
           environmental conditions. It helps planners and communities prioritize cooling
           strategies, green infrastructure, and outreach where they are most needed.
         </p>
-      </section>
-    </div>
+      </div>
 
-    <!-- TROUBLESHOOTING (kept from your original page) -->
-    <section>
-      <details class="help">
-        <summary>Troubleshooting</summary>
-        <ul>
-          <li>Open with a local server to avoid CORS: <code>python -m http.server</code></li>
-          <li>If data doesn’t load, check the path to <code>data/Heat_Vulnerability_Index_2023.geojson</code>.</li>
-          <li>Use your browser console (F12) to see errors.</li>
-        </ul>
-      </details>
-    </section>
+    
+          <script>
+            function aboutToggle() {
+              const panel = document.getElementById("about-panel");
 
+              // Toggle .open class
+              panel.classList.toggle("open");
+            }
+
+          </script> 
     <!-- LEAFLET + MAP LOGIC -->
     <link rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -97,33 +92,14 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""></script>
-    <script src="map.js"></script>
-
-    <!-- ABOUT HVI TOGGLE LOGIC -->
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const aboutToggle = document.getElementById('aboutToggle');
-        const aboutPanel = document.getElementById('aboutPanel');
-        const aboutClose = document.getElementById('aboutClose');
-
-        if (aboutToggle && aboutPanel) {
-          aboutToggle.addEventListener('click', () => {
-            aboutPanel.classList.toggle('open');
-          });
-        }
-        if (aboutClose && aboutPanel) {
-          aboutClose.addEventListener('click', () => {
-            aboutPanel.classList.remove('open');
-          });
-        }
-      });
-    </script>
+    <script src="js/map.js"></script>
 
   </main>
+  
 
   <footer class="site-footer">
     <div class="container">
-      <p>this is the footer.</p>
+      <p>©Victoria Crooks, 2025. This website was created for GEOG464. </p>
     </div>
   </footer>
 
