@@ -286,12 +286,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
   box-shadow: -10px 0 25px rgba(0, 0, 0, 0.25);
   padding: 1.5rem 1.75rem 2rem;
   z-index: 900;
-
-  /* 👇 NEW: keep tab visible when 'closed' */
-  /* 2.5rem matches the left:-2.5rem on the button */
   transform: translateX(calc(100% - 2.5rem));
 
-  /* tab should still be clickable when closed */
+
   opacity: 1;
   pointer-events: auto;
 

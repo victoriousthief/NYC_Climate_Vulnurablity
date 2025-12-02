@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title> New York City Vulnerablity · Map</title>
-  <link rel="stylesheet" href="css/cleaned_styles.css" />
+  <link rel="stylesheet" href="styles.css" />
   <meta name="description" content="find some new meta data">
   <link rel="preconnect" href="https://unpkg.com">
 </head>
@@ -44,7 +44,7 @@
       <div id="map" class="map" role="application"
         aria-label="Interactive map of New York City climate hazards and vulnerability"></div>
 
-      <!-- OVERLAY: SLIDER + LEGEND (ALWAYS VISIBLE) -->
+      <!-- OVERLAY: SLIDER + LEGEND  -->
       <aside id="control-card" class="control-card">
         <h2>Increase the % of Vegetation</h2>
 
@@ -68,10 +68,16 @@
               <h3>About the Heat Vulnerability Index (HVI)</h3>
         <p>
           The Heat Vulnerability Index (HVI) identifies neighborhoods at higher risk during
-          extreme heat events based on factors such as age, income, health, housing, and
-          environmental conditions. It helps planners and communities prioritize cooling
-          strategies, green infrastructure, and outreach where they are most needed.
-        </p>
+          extreme heat events based on factors identified by resesearchers such as, median household
+          income access to AC, racial inequalites, and vegetation coverage. It helps planners and
+          communities prioritize cooling strategies, green infrastructure, and outreach where they 
+          are most needed.
+
+          This map depicts the ratio of change in HVI after the increase of vegetation coverage in each neigborhood.
+          Ratio of change communicates how much improvment a neigborhood expeirenced in comparision to where to where 
+          they started. In areas of high HVI, the decrease in even small amounts vulnurability signals immense improvement.
+          It suggests a decrease in heat-related mortality. Every life saved is monumental. 
+
       </div>
 
     
@@ -99,7 +105,14 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>©Victoria Crooks, 2025. This website was created for GEOG464. </p>
+      <p>©Victoria Crooks, 2025. This website was created for GEOG464.
+      </p>
+      <p>
+
+          Disclaimer: This website was created for a term project. The general relationship between HVI and vegetation coverage 
+          represented on this map is accurate. There were issues with data access & quality that renders these
+          simulations unfit for any offical consultation.
+      </p>
     </div>
   </footer>
 
